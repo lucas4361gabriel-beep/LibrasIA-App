@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Libras IA</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background: #0a84ff;
+            margin: 0;
+            padding: 15px;
+        }
+        #avatar {
+            width: 220px;
+            height: 360px;
+            margin: 20px auto;
+            border-radius: 15px;
+            background: linear-gradient(180deg, #444, #222);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #avatar::after {
+            content: "🤖";
+            font-size: 100px;
+            animation: wave 2s infinite ease-in-out;
+        }
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+        textarea, button {
+            margin-top: 10px;
+            width: 80%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background: #0a84ff;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>App Libras IA</h1>
+    <div id="avatar"></div>
+
+    <textarea id="texto" placeholder="Digite aqui o texto..."></textarea><br>
+    <button onclick="traduzir()">Traduzir para Libras 🤲</button>
+
+    <script>
+        function traduzir() {
+            const texto = document.getElementById('texto').value.trim();
+            if (!texto) return alert('Digite algo para traduzir!');
+            const avatar = document.getElementById('avatar');
+            avatar.innerHTML = '🤖';
+            avatar.style.animation = 'wave 0.6s infinite';
+            setTimeout(() => {
+                avatar.innerHTML = '👐';
+                avatar.style.animation = 'none';
+                alert(`Tradução simulada: "${texto}" em Libras`);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
